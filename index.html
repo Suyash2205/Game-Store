@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Game Store — Games & Consoles</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Nexus Store</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="checkout.html" class="cart-link">
+        Cart <span class="cart-count" style="visibility: hidden;">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Your next adventure starts here</h1>
+        <p>Discover blockbuster games and the latest consoles. Digital games and hardware, all in one place.</p>
+        <div class="hero-buttons">
+          <a href="games.html" class="btn btn-primary">Browse Games</a>
+          <a href="hardware.html" class="btn btn-secondary">Shop Consoles</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <h2 class="section-title">Featured Games</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-image">
+              <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/SpiderMan2PS5BoxArt.jpeg" alt="Marvel's Spider-Man 2" />
+              <span class="card-badge">New</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Marvel's Spider-Man 2</h3>
+              <p class="card-meta">Action · PS5</p>
+              <div class="card-footer">
+                <span class="card-price">$69.99</span>
+                <button type="button" class="btn btn-primary" data-add-cart data-id="spiderman2" data-type="game" data-name="Marvel's Spider-Man 2" data-price="69.99">Add to cart</button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg" alt="Hogwarts Legacy" />
+              <span class="card-badge">Sale</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Hogwarts Legacy</h3>
+              <p class="card-meta">RPG · PC, PS5, Xbox</p>
+              <div class="card-footer">
+                <span class="card-price"><s>$59.99</s> $44.99</span>
+                <button type="button" class="btn btn-primary" data-add-cart data-id="hogwarts" data-type="game" data-name="Hogwarts Legacy" data-price="44.99">Add to cart</button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/813780/header.jpg" alt="Age of Empires II: Definitive Edition" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Age of Empires II: Definitive Edition</h3>
+              <p class="card-meta">Strategy · PC</p>
+              <div class="card-footer">
+                <span class="card-price">$19.99</span>
+                <button type="button" class="btn btn-primary" data-add-cart data-id="aoe2" data-type="game" data-name="Age of Empires II: DE" data-price="19.99">Add to cart</button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Elden Ring</h3>
+              <p class="card-meta">RPG · PC, PS5, Xbox</p>
+              <div class="card-footer">
+                <span class="card-price">$59.99</span>
+                <button type="button" class="btn btn-primary" data-add-cart data-id="eldenring" data-type="game" data-name="Elden Ring" data-price="59.99">Add to cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <h2 class="section-title">Popular Hardware</h2>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-image">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Playstation_5.jpg/500px-Playstation_5.jpg" alt="PlayStation 5" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">PlayStation 5</h3>
+              <p class="card-meta">Console · Disc Edition</p>
+              <div class="card-footer">
+                <span class="card-price">$499.99</span>
+                <button type="button" class="btn btn-primary" data-add-cart data-id="ps5" data-type="hardware" data-name="PlayStation 5" data-price="499.99">Add to cart</button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-image">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Nintendo_Switch_OLED.png/960px-Nintendo_Switch_OLED.png" alt="Nintendo Switch OLED" />
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Nintendo Switch OLED</h3>
+              <p class="card-meta">Console · 64GB</p>
+              <div class="card-footer">
+                <span class="card-price">$349.99</span>
+                <button type="button" class="btn btn-primary" data-add-cart data-id="switch-oled" data-type="hardware" data-name="Nintendo Switch OLED" data-price="349.99">Add to cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="text-center mt-3"><a href="hardware.html" class="btn btn-secondary">View all hardware</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Nexus Store</span>
+          <p>Your one-stop shop for games and gaming hardware. Digital and physical.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="hardware.html">Consoles</a></li>
+            <li><a href="checkout.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; Nexus Game Store. Mock store for demonstration. All product names are trademarks of their respective owners.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.querySelectorAll('[data-add-cart]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        const type = btn.dataset.type;
+        const name = btn.dataset.name;
+        const price = parseFloat(btn.dataset.price);
+        window.GameStore.addToCart({ id, type, name, price });
+        btn.textContent = 'Added!';
+        setTimeout(() => { btn.textContent = 'Add to cart'; }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

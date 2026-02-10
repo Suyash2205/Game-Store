@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Nexus Game Store</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Nexus Store</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="checkout.html" class="cart-link">
+        Cart <span class="cart-count" style="visibility: hidden;">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="section-title" style="margin-top: 32px;">Checkout</h1>
+
+      <div id="checkout-empty" class="empty-cart" style="display: none;">
+        <p>Your cart is empty.</p>
+        <a href="games.html" class="btn btn-primary">Browse Games</a>
+      </div>
+
+      <div id="checkout-content" class="checkout-layout">
+        <div>
+          <form id="checkout-form" class="form-group">
+            <h2 style="font-size: 1.25rem; margin-bottom: 20px;">Shipping & payment</h2>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" required placeholder="123 Main St, City, State, ZIP" />
+            </div>
+            <div class="form-group">
+              <label for="card">Card number</label>
+              <input type="text" id="card" name="card" placeholder="4242 4242 4242 4242" maxlength="19" />
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label for="expiry">Expiry</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" />
+              </div>
+              <div class="form-group">
+                <label for="cvc">CVC</label>
+                <input type="text" id="cvc" name="cvc" placeholder="123" maxlength="4" />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Place order</button>
+          </form>
+        </div>
+        <aside class="cart-summary">
+          <h2>Order summary</h2>
+          <div id="cart-items"></div>
+          <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total">$0.00</span>
+          </div>
+        </aside>
+      </div>
+
+      <div id="order-success" style="display: none;" class="page-section">
+        <div class="alert alert-success">Thank you! Your order has been placed. (This is a mock store — no real charge.)</div>
+        <a href="index.html" class="btn btn-primary">Back to store</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; Nexus Game Store. Mock store. No real payments are processed.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    (function() {
+      const cart = window.GameStore.getCart();
+      const emptyEl = document.getElementById('checkout-empty');
+      const contentEl = document.getElementById('checkout-content');
+      const successEl = document.getElementById('order-success');
+      const form = document.getElementById('checkout-form');
+
+      function renderCart() {
+        if (!cart.length) {
+          emptyEl.style.display = 'block';
+          contentEl.style.display = 'none';
+          return;
+        }
+        emptyEl.style.display = 'none';
+        contentEl.style.display = 'grid';
+
+        let total = 0;
+        const itemsHtml = cart.map(item => {
+          const subtotal = (item.price * (item.quantity || 1)).toFixed(2);
+          total += item.price * (item.quantity || 1);
+          return `
+            <div class="cart-item-summary" data-id="${item.id}" data-type="${item.type}">
+              <span><strong>${item.name}</strong> × ${item.quantity || 1}</span>
+              <span>$${subtotal}</span>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('cart-items').innerHTML = itemsHtml;
+        document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+      }
+
+      renderCart();
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.GameStore.saveCart([]);
+        window.GameStore.updateCartCount();
+        contentEl.style.display = 'none';
+        emptyEl.style.display = 'none';
+        successEl.style.display = 'block';
+      });
+    })();
+  </script>
+</body>
+</html>
