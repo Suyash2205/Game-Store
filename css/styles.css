@@ -73,8 +73,12 @@ img {
 .site-header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 16px;
   height: 72px;
+}
+
+.site-header nav {
+  margin-left: 12px;
 }
 
 .logo {
@@ -114,6 +118,50 @@ img {
   font-weight: 600;
   color: var(--text);
   transition: all var(--transition);
+}
+
+.site-search-form {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px;
+}
+
+.site-search-input {
+  width: 250px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 8px 10px;
+}
+
+.site-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.site-search-input:focus {
+  outline: none;
+}
+
+.site-search-btn {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.site-search-btn:hover {
+  background: var(--accent-hover);
 }
 
 .cart-link:hover {
@@ -244,6 +292,21 @@ img {
   border-color: var(--accent);
   transform: translateY(-4px);
   box-shadow: var(--shadow), 0 0 32px var(--accent-glow);
+}
+
+.search-hidden {
+  display: none;
+}
+
+.search-match {
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+
+.search-message {
+  margin: 0 0 20px;
+  font-size: 0.98rem;
+  color: var(--text-muted);
 }
 
 .card-image {
@@ -537,9 +600,31 @@ img {
 
 /* ===== Responsive ===== */
 @media (max-width: 640px) {
+  .site-header .container {
+    height: auto;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .site-header nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
   .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     font-size: 0.95rem;
+  }
+  .site-search-form {
+    order: 2;
+    margin-left: auto;
+    flex: 1;
+    min-width: 200px;
+  }
+  .site-search-input {
+    width: 100%;
   }
   .hero {
     padding: 48px 0 64px;
